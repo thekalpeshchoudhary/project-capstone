@@ -1,9 +1,11 @@
-import Category from "./components/categories/category.component";
-import categories from "./components/categoryData/categories";
+import Home from "./routes/home/home.component";
+import { Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
-    <Category categories={categories}></Category>
+    <Routes>
+      <Route path="/" element={<Home />} />
+    </Routes>
   );
 };
 
