@@ -22,7 +22,7 @@ const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
 
-  const val = useContext(UserContext);
+  const { setCurrentUser } = useContext(UserContext);
   console.log("hit");
 
   const resetFormFields = () => {
@@ -45,6 +45,7 @@ const SignUpForm = () => {
         email,
         password
       );
+      setCurrentUser(user);
       await createUserDocumentFromAuth(user, {
         displayName,
       });
