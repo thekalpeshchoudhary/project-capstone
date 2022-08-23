@@ -1,9 +1,8 @@
-import Category from "../../components/categories/category.component";
-import categories from "../../components/categoryData/categories";
+import Directory from "../../components/directory/directory.component";
 
 const Home = () => {
   return (
-    <Category categories={categories}></Category>
+    <Directory></Directory>
   );
 };
 
