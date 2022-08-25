@@ -15,8 +15,6 @@ export const USER_ACTION_TYPES = {
 };
 
 const userReducer = (state, action) => {
-  console.log("Dispatched");
-  console.log(action);
   const { type, payload } = action;
 
   switch (type) {

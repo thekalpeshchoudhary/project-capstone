@@ -50,7 +50,7 @@ const SignInForm = () => {
           alert("Incorrect password");
           break;
         default:
-          console.log(error);
+          console.log(`Sign In Error : ${error}`);
       }
     }
   };
