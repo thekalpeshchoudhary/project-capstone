@@ -10,13 +10,11 @@ import { CategoryContainer, CategoryTitle } from "./category.styles.jsx";
 
 const Category = () => {
   const { category } = useParams();
-  console.log("render/rerender cat");
   const categoriesMap = useSelector(selectCategoryMap);
   const [products, setProducts] = useState(categoriesMap[category]);
 
   useEffect(() => {
     setProducts(categoriesMap[category]);
-    console.log("effect called");
   }, [categoriesMap, category]);
 
   return (
