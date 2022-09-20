@@ -13,6 +13,7 @@ import {
 } from "./checkout.styles.jsx";
 
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
+import PaymentForm from "../../components/payment-form/payment-form.component.jsx";
 
 const Checkout = () => {
   const cartItems = useSelector(selectCartItems);
@@ -43,6 +44,7 @@ const Checkout = () => {
           })
         : "No Items in Cart"}
       <Total>Total = ₹{cartTotal}</Total>
+      <PaymentForm/>
     </CheckoutContainer>
   );
 };
