@@ -31,7 +31,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const firebaseApp = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 const provider = new GoogleAuthProvider();
 provider.setCustomParameters({
@@ -96,7 +96,7 @@ export const createUserDocumentFromAuth = async (
       console.log("Error creating the User ", error.message);
     }
   }
-  return userDocRef;
+  return userSnapShot;
 };
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
@@ -113,4 +113,17 @@ export const signOutUser = async () => await signOut(auth);
 
 export const onAuthStateChangeListener = (callback) => {
   onAuthStateChanged(auth, callback);
+};
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      (userAuth) => {
+        unsubscribe();
+        resolve(userAuth);
+      },
+      reject
+    );
+  });
 };
