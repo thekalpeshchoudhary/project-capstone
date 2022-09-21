@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-It is currently hosted on netlify at here](https://roaring-bublanina-4b3d3a.netlify.app/).
+Click [here](https://roaring-bublanina-4b3d3a.netlify.app/) to view it.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
