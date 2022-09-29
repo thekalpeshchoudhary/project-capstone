@@ -8,6 +8,7 @@ export type CartState = {
   readonly isCartOpen: boolean;
   readonly cartItems: CartItem[];
 };
+
 export const CART_INITIAL_STATE: CartState = {
   isCartOpen: false,
   cartItems: [],
