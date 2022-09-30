@@ -8,7 +8,7 @@ import {
   CartDropdownContainer,
   EmptyMessage,
   CartItems,
-} from "./cart-dropdown.styles.jsx";
+} from "./cart-dropdown.styles";
 import { useNavigate } from "react-router-dom";
 
 const CartDropdown = () => {

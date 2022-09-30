@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, FormEvent, ChangeEvent } from "react";
+import { AuthError, AuthErrorCodes } from "firebase/auth";
 
 import { useDispatch } from "react-redux";
 import {
@@ -13,7 +14,7 @@ import {
   SignUpContainer,
   FormTitle,
   ButtonsContainer,
-} from "./sign-in-form.styles.jsx";
+} from "./sign-in-form.styles";
 
 const defaultFormFields = {
   email: "",
@@ -32,28 +33,34 @@ const SignInForm = () => {
     dispatch(googleSignInStart());
   };
 
-  const handleChanges = (event) => {
+  const handleChanges = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!email || !password) return;
     try {
       dispatch(emailSignInStart(email, password));
       resetFormFields();
     } catch (error) {
-      switch (error.code) {
-        case "auth/user-not-found":
-          alert("Incorrect Email");
-          break;
-        case "auth/wrong-password":
-          alert("Incorrect password");
-          break;
-        default:
-          console.log(`Sign In Error : ${error}`);
+      if ((error as AuthError).code === AuthErrorCodes.INVALID_PASSWORD) {
+        alert("Invalid Password");
+      } else {
+        console.log("User Sign In Failed: ", error);
       }
+      // switch ((error as AuthError).code) {
+      //   case AuthErrorCodes.INVALID_EMAIL:
+      //     alert("Incorrect Email");
+      //     break;
+      //   case AuthErrorCodes.W:
+      //     alert("Incorrect password");
+      //     break;
+      //   default:
+
+      //   }
+      // console.log(`Sign In Error : ${error}`);
     }
   };
 

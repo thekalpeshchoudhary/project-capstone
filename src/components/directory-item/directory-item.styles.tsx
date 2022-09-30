@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const BackgroundImage = styled.div`
+type BackgroundImageProp = { imageUrl: string };
+
+export const BackgroundImage = styled.div<BackgroundImageProp>`
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -25,7 +27,7 @@ export const Body = styled.div`
     margin: 0 6px 0;
     font-size: 22px;
     color: #4a4a4a;
-    text-transform:Uppercase;
+    text-transform: Uppercase;
   }
 
   p {
