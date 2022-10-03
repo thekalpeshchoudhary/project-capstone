@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -10,7 +9,7 @@ import {
 
 import ProductCard from "../../components/product-card/product-card.component";
 import Spinner from "../../components/spinner/spinner.component";
-import { CategoryContainer, CategoryTitle } from "./category.styles";
+import { CategoriesContainer, CategoryContainer, CategoryTitle } from "./category.styles";
 
 export type CategoryRouteParam = {
   category: string;
@@ -29,7 +28,7 @@ const Category = () => {
   }, [categoriesMap, category]);
 
   return (
-    <Fragment>
+    <CategoriesContainer>
       <CategoryTitle>{category.toUpperCase()}</CategoryTitle>
       {isLoading ? (
         <Spinner />
@@ -41,7 +40,7 @@ const Category = () => {
             ))}
         </CategoryContainer>
       )}
-    </Fragment>
+    </CategoriesContainer>
   );
 };
 

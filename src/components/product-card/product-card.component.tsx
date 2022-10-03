@@ -11,6 +11,7 @@ import {
   Footer,
   Name,
   Price,
+  Product,
 } from "./product-card.styles";
 
 type ProductCardProps = {
@@ -25,7 +26,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
 
   return (
     <ProductCardContainer>
-      <img src={imageUrl} alt={`${name}`} />
+      <Product imageUrl={imageUrl} />
       <Footer>
         <Name>{name}</Name>
         <Price>{price}</Price>

@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux/es/exports";
 
 import { checkUserSession } from "./store/user/user.action";
 
+import { GlobalSyle } from "./global.styles";
+
 import Spinner from "./components/spinner/spinner.component";
 
 const Navigation = lazy(() =>
@@ -25,6 +27,7 @@ const App = () => {
 
   return (
     <Suspense fallback={<Spinner />}>
+      <GlobalSyle/>
       <Routes>
         <Route path="/" element={<Navigation />}>
           <Route index element={<Home />} />
